@@ -1,0 +1,3 @@
+$env:PATH="D:\Qaseem\node\node;" + $env:PATH
+
+D:\Qaseem\node\node\nodevars.bat
