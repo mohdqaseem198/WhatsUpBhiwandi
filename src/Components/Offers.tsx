@@ -2,7 +2,7 @@ import { OfferItems } from "../Constants/constants";
 import OfferCard from "./OfferCard";
 
 const Offers = () =>{
-    return(<div className="bg-amber-100" id="offers">
+    return(<div className="py-10 bg-amber-100" id="offers">
         <div className="p-3 text-center">
             <h2 className="font-semibold text-2xl">
                 Today's Special Offers
