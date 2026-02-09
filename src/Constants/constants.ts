@@ -18,3 +18,8 @@ export const ReadyToGrowCardItems : {id : number, title : string}[] = [{id : 1, 
     {id : 2, title : "Connect with Customers"},
     {id : 3, title : "Promote Offers"},
 ];
+
+export const GetInTouchCardList : {id : number, title : string, Details : string, img ?: string}[] = [{id : 1, title: "Email Us", Details: "qaseem.ansari198@gmail.com", img:"" },
+    {id : 2, title: "Call Us", Details: "+91-9172708664", img:"" },
+    {id : 3, title: "Visit Us", Details: "Bhiwandi, Dist Thane 421302", img:"" },
+]

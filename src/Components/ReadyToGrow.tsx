@@ -22,7 +22,6 @@ const ReadyToGrow = () => {
             ))
             }
         </div>
-        
         <div className="flex flex-col text-center justify-center p-4">
             <RegisterButtonGrow props={props} />
 
