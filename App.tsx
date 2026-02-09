@@ -15,7 +15,7 @@ const App = () => {
             <Offers />
             <ReadyToGrow />
 
-            <div>
+            <div className="lg:grid lg:grid-cols-2 lg:my-14">
                 <GetInTouch />
                 <QuickForm />
             </div>

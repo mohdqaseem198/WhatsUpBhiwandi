@@ -3,7 +3,7 @@ import GetInTouchCard from "./GetInTouchCard";
 
 const GetInTouch = () => {
 
-    return(<div className="py-10 px-4" id="get-in-touch">
+    return(<div className="py-10 px-4 " id="get-in-touch">
         <div>
             <h2 className="text-2xl font-semibold">Get In Touch</h2>
             <p className="my-5">Have questions? Want to list your shop? Need help? Contact the WhatsUp Bhiwandi team.</p>
