@@ -1,5 +1,6 @@
 import Discover from "./src/Components/Discover";
 import FeaturedShops from "./src/Components/FeaturedShops";
+import Footer from "./src/Components/Footer";
 import GetInTouch from "./src/Components/GetInTouch";
 import Navbar from "./src/Components/Navbar";
 import Offers from "./src/Components/Offers";
@@ -19,6 +20,8 @@ const App = () => {
                 <GetInTouch />
                 <QuickForm />
             </div>
+
+            <Footer />
 
         </main>
     </div>)
