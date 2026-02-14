@@ -1,8 +1,11 @@
+'use client';
 import { disconnect } from "process";
 import ExploreButton from "./Models/ExploreButton";
 import RegisterShop from "./Models/RegisterShopButton";
 import DiscoverCount from "./DiscoverCount";
 import DiscoverRight from "./DiscoverRight";
+import Link from "next/link";
+import { signIn } from "next-auth/react";
 
 const Discover = () => {
     return (
@@ -16,9 +19,11 @@ const Discover = () => {
                 <ExploreButton text="Explore Shops" />
             </div>
 
+            
             <div className="my-3">
                 <RegisterShop text="Register Your Shop" />
             </div>
+            
 
             <div className="my-8 w-full h-[1px] bg-teal-200" />
 

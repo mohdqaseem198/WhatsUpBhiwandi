@@ -4,7 +4,7 @@ import { signIn, signOut, useSession } from "next-auth/react";
 
 export default function LoginButton() {
   const { data: session } = useSession();
-  console.log('session', session);
+  //console.log('session', session);
 
   if (session) {
     return (
@@ -24,8 +24,8 @@ export default function LoginButton() {
   }
 
   return (
-    <button className="cursor-pointer bg-teal-500/80 text-white font-semibold border border-1px border-teal-900 rounded-2xl px-2 h-10" onClick={() => signIn("google")}>
-      Login with Google
-    </button>
+      <button className="cursor-pointer bg-teal-500/80 text-white font-semibold border border-1px border-teal-900 rounded-2xl px-2 h-10" onClick={() => signIn("google")}>
+        Login with Google
+      </button>
   );
 }
