@@ -52,15 +52,6 @@ const uploadImagesToCloudinary = async () => {
         e.preventDefault();
         setLoading(true);
 
-        // const formCreation = new FormData();
-        // formCreation.append("name", form.name);
-        // formCreation.append("description", form.description);
-        // formCreation.append("image", form.images);
-        // formCreation.append("email", session?.user?.email);
-
-        // console.log('formCreation', formCreation);
-        // sessionStorage.setItem("formCreation", JSON.stringify([formCreation.get("name"), formCreation.get("description"), formCreation.get("image")]));
-
         try
         {
         
@@ -75,7 +66,7 @@ const uploadImagesToCloudinary = async () => {
           images: cloudinaryUrls,
         });
 
-        if(res.status === 500){
+        if(res.status == 500){
             console.log('error happened', res.data.error);
         }
 

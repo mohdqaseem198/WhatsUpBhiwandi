@@ -22,6 +22,12 @@ const RegisterShopSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+
+    owner: {
+      type: String,   // storing User _id as string
+      
+    },
+
   },
   { timestamps: true }
 );
