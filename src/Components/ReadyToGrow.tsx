@@ -8,7 +8,7 @@ const ReadyToGrow = () => {
 
     return(<div className="py-10 bg-teal-600" id="ready-to-grow">
         <div>
-            <img src="" />
+            <img src="no" alt="no" />
         </div>
 
         <div className="text-center text-white">

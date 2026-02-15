@@ -19,11 +19,10 @@ export const ReadyToGrowCardItems : {id : number, title : string}[] = [{id : 1, 
     {id : 3, title : "Promote Offers"},
 ];
 
-export const GetInTouchCardList : {id : number, title : string, Details : string, img ?: string}[] = [{id : 1, title: "Email Us", Details: "qaseem.ansari198@gmail.com", img:"" },
-    {id : 2, title: "Call Us", Details: "+91-9172708664", img:"" },
-    {id : 3, title: "Visit Us", Details: "Bhiwandi, Dist Thane 421302", img:"" },
+export const GetInTouchCardList : {id : number, title : string, Details : string, img ?: string}[] = [{id : 1, title: "Email Us", Details: "qaseem.ansari198@gmail.com", img:"/email.svg" },
+    {id : 2, title: "Call Us", Details: "+91-9172708664", img:"/phone.svg" },
+    {id : 3, title: "Visit Us", Details: "Bhiwandi, Dist Thane 421302", img:"/location.svg" },
 ];
-
 
 export const footerItems : {id : number, head : string, items : string[]}[] = [{id : 1, head : "For Shopkeepers", items : ["Register Your Shop", "Pricing Plans", "Success Stories", "Help Center"] },
     {id : 2, head : "For Customers", items : ["Browse Shops", "Today's Offers", "Categories", "About Us"] },

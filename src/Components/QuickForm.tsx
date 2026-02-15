@@ -69,10 +69,10 @@ const QuickForm = () => {
                     <textarea value={form.message} onChange={(e) => handleChange(e)} className="outline-none border w-full min-h-40 border-gray-400 p-2 rounded-md" name="message" placeholder="Your Message" />
                 </div>
 
-                <button type="submit">
-                    <ListYourShop text={"Send Message"} />
-                </button>
-
+                    <div className= "bg-teal-500 flex justify-center p-1 rounded-md text-white" id="list-your-shop-button">
+                         <button type="submit" className="cursor-pointer" >Send Message</button>
+                    </div>
+                
             </div>
             
 

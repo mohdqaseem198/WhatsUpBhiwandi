@@ -24,9 +24,9 @@ const Footer = () => {
                 <div className="py-2" key={single.id}>
                     <p>{single.head}</p>
                     <div className="text-gray-400">
-                    {single.items.map((s) => {
+                    {single.items.map((s, index) => {
                         return(
-                        <p className="py-1 text-sm">
+                        <p key={index} className="py-1 text-sm">
                             {s}
                         </p>)
                     })}
