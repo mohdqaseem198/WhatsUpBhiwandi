@@ -12,7 +12,7 @@ export async function POST(req) {
     const body = await req.json();
 
     const session = await getServerSession(authOptions);
-    
+
     if(!session){
         return NextResponse.json(
             {message : "session is blank"},
@@ -28,8 +28,6 @@ export async function POST(req) {
         }, 
     {status : 404})
     }
-
-    
 
     const newRegisterShop = await RegisterShop.create({
         ...body,

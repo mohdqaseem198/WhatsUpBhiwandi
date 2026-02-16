@@ -2,7 +2,7 @@ import { CardItems } from "../Constants/constants";
 import FeaturedCard from "./FeaturedCard";
 
 const FeaturedShops = () => {
-
+    
     return(<div className="">
         <div className="flex flex-row justify-between p-3">
             <div>
@@ -13,6 +13,7 @@ const FeaturedShops = () => {
                 <button className="cursor-pointer text-teal-700">View All</button>
             </div>
         </div>
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3" id="featured-shop">
             {CardItems && CardItems.map((single) => (
                 <div className="mx-3 my-5" key={single.id}>
@@ -20,6 +21,15 @@ const FeaturedShops = () => {
                 </div>
             ))}
         </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3" id="featured-shop">
+            {CardItems && CardItems.map((single) => (
+                <div className="mx-3 my-5" key={single.id}>
+                    <FeaturedCard item= {single} />
+                </div>
+            ))}
+        </div>
+
     </div>)
 };
 

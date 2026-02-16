@@ -14,6 +14,9 @@ const RegisterShop = ({text}) => {
     const [form, setForm] = useState({
         name : "",
         description : "",
+        discount : "",
+        location : "",
+        number : 0,
         images : []
     });
 
@@ -63,6 +66,9 @@ const uploadImagesToCloudinary = async () => {
           name: form.name,
           description: form.description,
           email: session?.user?.email,
+          discount : form.discount,
+          location : form.location,
+          number : form.number ,
           images: cloudinaryUrls,
         });
 
@@ -76,6 +82,9 @@ const uploadImagesToCloudinary = async () => {
             setForm({
               name: "",
               description: "",
+              discount : "",
+              location : "",
+              number : 0,
               images: [],
             });
 
@@ -135,8 +144,23 @@ const uploadImagesToCloudinary = async () => {
                 </div>
 
                 <div className="flex justify-between border border-teal-700 rounded-sm p-2">
-                    <label className="font-semibold">Description</label>
+                    <label className="font-semibold">Category</label>
                     <input onChange={(e) => handleChange(e)} className="outline-none" name="description" type="text" placeholder="Description" required />
+                </div>
+
+                <div className="flex justify-between border border-teal-700 rounded-sm p-2">
+                    <label className="font-semibold">Discount</label>
+                    <input onChange={(e) => handleChange(e)} className="outline-none" name="discount" type="text" placeholder="discount" required />
+                </div>
+
+                <div className="flex justify-between border border-teal-700 rounded-sm p-2">
+                    <label className="font-semibold">Location</label>
+                    <input onChange={(e) => handleChange(e)} className="outline-none" name="location" type="text" placeholder="location" required />
+                </div>
+
+                <div className="flex justify-between border border-teal-700 rounded-sm p-2">
+                    <label className="font-semibold">Mobile Number</label>
+                    <input onChange={(e) => handleChange(e)} className="outline-none" name="number" type="text" placeholder="number" required />
                 </div>
 
                 <div className="flex justify-between border border-teal-700 rounded-sm p-2">

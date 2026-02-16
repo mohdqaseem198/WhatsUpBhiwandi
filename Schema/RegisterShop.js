@@ -27,6 +27,18 @@ const RegisterShopSchema = new mongoose.Schema(
       type: String,   // storing User _id as string
       
     },
+    discount: {
+      type: String,
+      default : "Visit To Explore"
+    },
+    location: {
+      type: String,
+      required: true,
+    },
+    number: {
+      type: Number,
+      required: true,
+    },
 
   },
   { timestamps: true }
