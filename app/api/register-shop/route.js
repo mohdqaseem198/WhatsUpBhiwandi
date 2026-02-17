@@ -47,3 +47,20 @@ export async function POST(req) {
   }
 };
 
+export async function GET(){
+console.log('inside GET');
+  try{
+    await connectDB();
+
+    const data = await RegisterShop.find({});
+
+    return NextResponse.json(data, { status: 200 });
+  }
+
+  catch(err){
+    return NextResponse.json({
+      data : err
+    },
+  {status : 500})
+  }
+}
