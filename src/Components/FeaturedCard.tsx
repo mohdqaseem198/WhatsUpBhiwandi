@@ -1,12 +1,17 @@
+import Link from "next/link";
 import ListYourShop from "./Models/ListYouShopButton";
+import { usePathname } from "next/navigation";
 
 const FeaturedCard = ({item}) => {
     
     console.log('item from featured card', item);
     
-    const {name = "", location = "" ,description , discount , images, number} = item || {} ;
+    const {owner : id = null ,name = "", location = "" ,description , discount , images, number} = item || {} ;
 
     const {title, category,img, discnt, loc, nbr} = item;
+
+    const pathname = usePathname();
+    const isInsideShop = pathname.startsWith("/Shop/");
 
     return(<div id="featured-card">
         <div className="shadow-2xl h-[] border border-1 border-white rounded-xl">
@@ -20,7 +25,6 @@ const FeaturedCard = ({item}) => {
                 {images ? 
                     <img className="w-full h-full object-cover" src={images[0]} />
                 : 
-                
                 <img className="w-full h-full object-cover" src="./store.jpg" />}
             </div>
             <div className="p-2 space-y-2">
@@ -33,10 +37,18 @@ const FeaturedCard = ({item}) => {
 
                 <p>{location}</p>
                 <p>{`+91-${number}`}</p>
-
-                <div className="w-full m-auto">
-                    <ListYourShop text="Visit Shop" />
-                </div>
+                
+                {!isInsideShop ?
+                <Link href={`/Shop/${id}`}>
+                    <div className="w-full m-auto">
+                        <ListYourShop text="Visit Shop" />
+                    </div>
+                </Link>
+                : 
+                    <div className="w-full m-auto">
+                        <ListYourShop text="Take a Tour" />
+                    </div>
+                    }
 
             </div>
             
