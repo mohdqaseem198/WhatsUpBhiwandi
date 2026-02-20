@@ -51,7 +51,7 @@ const FeaturedCard = ({item}) => {
                     }
 
             </div>
-            
+
         </div>
     </div>)
 };

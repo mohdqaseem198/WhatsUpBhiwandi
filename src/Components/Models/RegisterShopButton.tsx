@@ -4,7 +4,7 @@ import { useSession, signIn, signOut } from "next-auth/react";
 import { useState } from "react";
 import toast from "react-hot-toast";
 
-const RegisterShop = ({text}) => {
+const RegisterShop = ({text, onSuccess}) => {
 
     const {data : session} = useSession();
     const [open, setOpen] = useState(false);
@@ -89,6 +89,8 @@ const uploadImagesToCloudinary = async () => {
             });
 
             setOpen(false);
+            console.log('from register Shop Button onSuccess called');
+            onSuccess();
         }}
 
         catch(error)

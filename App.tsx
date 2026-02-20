@@ -1,3 +1,4 @@
+
 import Discover from "./src/Components/Discover";
 import FeaturedShops from "./src/Components/FeaturedShops";
 import Footer from "./src/Components/Footer";
@@ -7,8 +8,10 @@ import Navbar from "./src/Components/Navbar";
 import Offers from "./src/Components/Offers";
 import QuickForm from "./src/Components/QuickForm";
 import ReadyToGrow from "./src/Components/ReadyToGrow";
+import DiscoveredComboFeaturedShop from "./src/Components/DiscoveredCombFeaturedShop";
 
 const App = () => {
+
     return(<div id="app">
 
         <div className="flex flex-row justify-between items-center">
@@ -17,8 +20,7 @@ const App = () => {
         </div>
 
         <main>
-            <Discover />
-            <FeaturedShops />
+            <DiscoveredComboFeaturedShop />
             <Offers />
             <ReadyToGrow />
 

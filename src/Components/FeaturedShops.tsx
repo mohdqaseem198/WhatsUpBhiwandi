@@ -7,7 +7,7 @@ import axios from "axios";
 import Link from "next/link";
 
 
-const FeaturedShops = () => {
+const FeaturedShops = ({refreshKey}) => {
 
     const [userData, setUserData] = useState([]);
 
@@ -27,7 +27,7 @@ const FeaturedShops = () => {
 
         FetchData();
         
-    }, [])
+    }, [refreshKey])
 
     console.log('userData', userData)
     
