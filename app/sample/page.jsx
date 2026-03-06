@@ -1,14 +1,19 @@
 "use client"
 import { FixedSizeList as List } from "react-window";
 import {books} from "../../src/Constants/constants";
+import { useDispatch } from "react-redux";
+import {add} from '../../src/redux/slices/bookSlice';
+import Link from "next/link";
 
 const Sample = () =>{
 
     const items = Array.from({length : 10000}, (_, index) => `item ${index+1}`);
 
+    const dispatch = useDispatch();
+
     const handleAdd = (index) => {
+        dispatch(add(index));
         console.log('clicked', index);
-        console.log(books[0].id);
     }
 
     const Row = ({ index, style }) => (
@@ -21,7 +26,7 @@ const Sample = () =>{
                 <p>{books[index].price}</p>
             </div>
             <div>
-                <button onClick={(e) => handleAdd(index+1)} className="bg-green-300 w-32 px-2 rounded-sm cursor-pointer">Add To Cart</button>
+                <button onClick={(e) => handleAdd(books[index])} className="bg-green-300 w-32 px-2 rounded-sm cursor-pointer">Add To Cart</button>
             </div>
         </div>
         <hr />
@@ -30,8 +35,14 @@ const Sample = () =>{
 
     return(
         <div>
-            {/* {array.map((single) => <li>{single}</li>)} */}
-            <h3>List Virtualization here</h3>
+            
+            <div className="flex flex-row justify-around">
+                {/* {array.map((single) => <li>{single}</li>)} */}
+                <h3>List Virtualization here</h3>
+                <Link href={'/Cart'}>
+                    Cart
+                </Link>
+            </div>
 
             <List className="bg-gray-100"
                 height={500}          // Visible area height

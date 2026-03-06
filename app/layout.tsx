@@ -4,6 +4,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "react-hot-toast";
 import  Providers  from "../src/Components/Provider";
+import ReduxProvider from './providers';
 
 const inter = Inter({
   subsets: ["latin"],
@@ -36,10 +37,12 @@ export default function RootLayout({
       <body
         className={`${inter.className} ${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <Providers >
-          {children}
-          <Toaster position="top-center" />
-        </Providers>
+        <ReduxProvider>
+          <Providers >
+            {children}
+            <Toaster position="top-center" />
+          </Providers>
+          </ReduxProvider>
       </body>
     </html>
   );
