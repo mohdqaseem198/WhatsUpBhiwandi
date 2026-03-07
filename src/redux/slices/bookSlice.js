@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { act } from "react";
 
 const BookSlice = createSlice({
     name : "book",
@@ -17,6 +18,10 @@ const BookSlice = createSlice({
             }
         },
 
+        updateSlice : (state, action) => {
+            state.item = state.item.map((single) => single.id === action.payload.id ? action.payload : single)
+        },
+
         Delete : (state, action) => {
             state.item = state.item.filter((single) => single.id !== action.payload)
         }
@@ -24,5 +29,5 @@ const BookSlice = createSlice({
 
 });
 
-export const {add,  Delete} = BookSlice.actions;
+export const {add, updateSlice, Delete} = BookSlice.actions;
 export default BookSlice.reducer;

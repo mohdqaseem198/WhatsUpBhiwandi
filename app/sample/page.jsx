@@ -1,7 +1,7 @@
 "use client"
 import { FixedSizeList as List } from "react-window";
 import {books} from "../../src/Constants/constants";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {add} from '../../src/redux/slices/bookSlice';
 import Link from "next/link";
 
@@ -10,6 +10,9 @@ const Sample = () =>{
     const items = Array.from({length : 10000}, (_, index) => `item ${index+1}`);
 
     const dispatch = useDispatch();
+    
+    const Cart = useSelector((store) => store.BooksSlicer.item)
+    const CartLength = Cart.length;
 
     const handleAdd = (index) => {
         dispatch(add(index));
@@ -41,6 +44,7 @@ const Sample = () =>{
                 <h3>List Virtualization here</h3>
                 <Link href={'/Cart'}>
                     Cart
+                    <sup>{CartLength}</sup>
                 </Link>
             </div>
 
