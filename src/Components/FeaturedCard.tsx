@@ -1,6 +1,7 @@
 import Link from "next/link";
 import ListYourShop from "./Models/ListYouShopButton";
 import { usePathname } from "next/navigation";
+import Image from "next/image";
 
 const FeaturedCard = ({item}) => {
     
@@ -23,9 +24,9 @@ const FeaturedCard = ({item}) => {
                 } */}
 
                 {images ? 
-                    <img className="w-full h-full object-cover" src={images[0]} />
+                    <Image height={300} width={400} alt={images[0]} className="w-full h-full object-cover" src={images[0]} />
                 : 
-                <img className="w-full h-full object-cover" src="./store.jpg" />}
+                <Image height={300} width={400} alt='' className="w-full h-full object-cover" src="/store.jpg" />}
             </div>
             <div className="p-2 space-y-2">
                 <h2 className="font-semibold text-xl ">{title || name}</h2>
