@@ -5,11 +5,14 @@ import FeaturedCard from "./FeaturedCard";
 import { fetchData } from "next-auth/client/_utils";
 import axios from "axios";
 import Link from "next/link";
+import { arrayBuffer } from "stream/consumers";
+import ShimmerFeaturedCard from "./ShimmerFeaturedCard";
 
 
 const FeaturedShops = ({refreshKey}) => {
 
     const [userData, setUserData] = useState([]);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         //console.log('inside useEffect');
@@ -26,6 +29,7 @@ const FeaturedShops = ({refreshKey}) => {
         }
 
         FetchData();
+        setLoading(false);
         
     }, [refreshKey])
 
@@ -43,14 +47,16 @@ const FeaturedShops = ({refreshKey}) => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3" id="featured-shop">
-            {CardItems && CardItems.map((single) => (
+            {loading ? Array(3).fill(null).map((s, index) => <ShimmerFeaturedCard />)
+                    : CardItems.map((single) => (
                 <div className="mx-3 my-5" key={single.id}>
                     <FeaturedCard item= {single} />
                 </div>
             ))}
         </div>
 
-        {userData?.length > 0 &&
+        {loading ? Array(3).fill(null).map((s, index) => <ShimmerFeaturedCard />)
+        :
          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3" id="featured-shop">
             {userData && userData.map((single) => (
                 <div className="mx-3 my-5" key={single._id}>
