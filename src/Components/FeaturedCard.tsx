@@ -5,8 +5,6 @@ import Image from "next/image";
 
 const FeaturedCard = ({item}) => {
     
-    console.log('item from featured card', item);
-    
     const {owner : id = null ,name = "", location = "" ,description , discount , images, number} = item || {} ;
 
     const {title, category,img, discnt, loc, nbr} = item;

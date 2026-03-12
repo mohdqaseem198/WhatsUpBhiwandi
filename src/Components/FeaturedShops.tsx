@@ -25,11 +25,11 @@ const FeaturedShops = ({refreshKey}) => {
             
             if(res.status == 200){
                 setUserData(res.data);
+                setLoading(false);
             }
         }
 
         FetchData();
-        setLoading(false);
         
     }, [refreshKey])
 
@@ -46,16 +46,29 @@ const FeaturedShops = ({refreshKey}) => {
             </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3" id="featured-shop">
-            {loading ? Array(3).fill(null).map((s, index) => <ShimmerFeaturedCard />)
+        {/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3" id="featured-shop">
+            {loading ? Array(3).fill(null).map((s, index) => 
+            <div className="flex flex-col md:flex-row" key={index}>
+                <ShimmerFeaturedCard />
+            </div>)
                     : CardItems.map((single) => (
                 <div className="mx-3 my-5" key={single.id}>
                     <FeaturedCard item= {single} />
                 </div>
             ))}
-        </div>
+        </div> */}
 
-        {loading ? Array(3).fill(null).map((s, index) => <ShimmerFeaturedCard />)
+        {console.log(loading,'loading')}
+        <div>
+        {loading ? (
+            <div className="grid grid-cols-1 md:grid-cols-3">
+                {Array(3).fill(null).map((s, index) =>
+                <div key={index} >
+                    <ShimmerFeaturedCard />
+                </div>
+                )}
+            </div>
+        )
         :
          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3" id="featured-shop">
             {userData && userData.map((single) => (
@@ -64,6 +77,7 @@ const FeaturedShops = ({refreshKey}) => {
                 </div>
             ))}
         </div>}
+        </div>
 
     </div>)
 };
