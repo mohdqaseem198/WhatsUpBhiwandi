@@ -1,4 +1,6 @@
 "use client";
+import { FixedSizeGrid as List } from "react-window";
+import {AutoSizer} from "react-virtualized-auto-sizer";
 import { useEffect, useState } from "react";
 import { CardItems } from "../Constants/constants";
 import FeaturedCard from "./FeaturedCard";
@@ -15,7 +17,6 @@ const FeaturedShops = ({refreshKey}) => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        //console.log('inside useEffect');
 
         const FetchData = async() => {
 
@@ -33,7 +34,22 @@ const FeaturedShops = ({refreshKey}) => {
         
     }, [refreshKey])
 
-    console.log('userData', userData)
+    //console.log('userData', userData);
+    
+    // const Cell = ({ columnIndex, rowIndex, style }) => {
+    //   const index = rowIndex * 3 + columnIndex;
+    //   const item = userData[index];
+
+    //   if (!item) return null;
+
+    //   console.log("inside cell", item);    
+    //   return (
+    //     <div style={style} className="mx-3 my-5">
+    //       <FeaturedCard item={item} />
+    //     </div>
+    //   );
+    // }
+    
     
     return(<div className="">
         <div className="flex flex-row justify-between p-3">
@@ -46,19 +62,6 @@ const FeaturedShops = ({refreshKey}) => {
             </div>
         </div>
 
-        {/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3" id="featured-shop">
-            {loading ? Array(3).fill(null).map((s, index) => 
-            <div className="flex flex-col md:flex-row" key={index}>
-                <ShimmerFeaturedCard />
-            </div>)
-                    : CardItems.map((single) => (
-                <div className="mx-3 my-5" key={single.id}>
-                    <FeaturedCard item= {single} />
-                </div>
-            ))}
-        </div> */}
-
-        {console.log(loading,'loading')}
         <div>
         {loading ? (
             <div className="grid grid-cols-1 md:grid-cols-3">
@@ -76,7 +79,31 @@ const FeaturedShops = ({refreshKey}) => {
                         <FeaturedCard item= {single} />
                 </div>
             ))}
-        </div>}
+        </div>
+        
+        // <>
+        // {userData.length > 0 && (
+        //   <div className="h-[550px] w-full">
+        //     <AutoSizer>
+        //       {({ width, height }) => (
+        //         <List
+        //           height={height}
+        //           width={width}
+        //           columnCount={3}
+        //           columnWidth={width / 3}
+        //           rowCount={Math.ceil(userData.length / 3)}
+        //           rowHeight={550}
+        //         >
+        //           {(props) => <Cell {...props} />}
+        //         </List>
+        //       )}
+        //     </AutoSizer>
+        //   </div>
+        // )}
+        // </>
+
+        }
+        
         </div>
 
     </div>)

@@ -5,9 +5,10 @@ import RegisterShop from "./Models/RegisterShopButton";
 import DiscoverCount from "./DiscoverCount";
 import DiscoverRight from "./DiscoverRight";
 import Link from "next/link";
-import { signIn } from "next-auth/react";
+import { signIn, useSession } from "next-auth/react";
 
 const Discover = ({onSuccess}) => {
+    const {data : session} = useSession();
     return (
     <div className="grid py-14 bg-teal-600 text-white lg:grid-cols-5" id="discover">
         <div className="p-2 lg:col-span-3">
@@ -21,7 +22,7 @@ const Discover = ({onSuccess}) => {
 
             
             <div className="my-3">
-                <RegisterShop text="Register Your Shop" onSuccess={onSuccess} />
+                <RegisterShop text={session ? 'Register You Shop' : 'LogIn to Register'} onSuccess={onSuccess} />
             </div>
             
 
