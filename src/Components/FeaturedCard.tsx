@@ -2,8 +2,13 @@ import Link from "next/link";
 import ListYourShop from "./Models/ListYouShopButton";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
+import { useEffect, useRef } from "react";
+import axios from "axios";
 
 const FeaturedCard = ({item}) => {
+
+    const cardRef = useRef(null);
+    const hasViewed = useRef(false);
     
     const {owner : id = null ,name = "", location = "" ,description , discount , images, number} = item || {} ;
 
@@ -12,7 +17,45 @@ const FeaturedCard = ({item}) => {
     const pathname = usePathname();
     const isInsideShop = pathname.startsWith("/Shop/");
 
-    return(<div id="featured-card">
+    useEffect(() => {
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+
+          if (entry.isIntersecting && !hasViewed.current) {
+
+            console.log("Card visible:", item._id);
+
+            hasViewed.current = true;
+
+            axios.post("/api/shop-view", {
+              shopId: item._id
+            });
+
+            observer.unobserve(entry.target); // prevent duplicate count
+          }
+
+        });
+      },
+      {
+        threshold: 0.8 // 80% of card visible
+      }
+    );
+
+    if (cardRef.current) {
+      observer.observe(cardRef.current);
+    }
+
+    return () => {
+      if (cardRef.current) {
+        observer.unobserve(cardRef.current);
+      }
+    };
+
+  }, [item]);
+
+    return(<div ref={cardRef} id="featured-card">
         <div className="shadow-2xl h-[] border border-1 border-white rounded-xl">
             <div className="w-full h-[300px] rounded-t-md overflow-hidden">
                 {/* {images ? images.map((single, index) => 

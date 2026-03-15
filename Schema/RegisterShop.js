@@ -25,7 +25,6 @@ const RegisterShopSchema = new mongoose.Schema(
 
     owner: {
       type: String,   // storing User _id as string
-      
     },
     discount: {
       type: String,

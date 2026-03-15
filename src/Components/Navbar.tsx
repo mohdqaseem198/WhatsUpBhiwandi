@@ -7,7 +7,7 @@ import Link from "next/link";
 const Navbar = () => {
 
     const {data : session} = useSession();
-    console.log(session?.user?.name, 'from navbar');
+    //console.log(session?.user?.name, 'from navbar');
     const name =  (session?.user?.name)?.replaceAll(' ',"");
 
     return(<div className="p-1 flex bg-white lg:flex-row lg:justify-between" id="navbar">
