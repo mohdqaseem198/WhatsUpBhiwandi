@@ -1,6 +1,4 @@
 "use client";
-import { FixedSizeGrid as List } from "react-window";
-import {AutoSizer} from "react-virtualized-auto-sizer";
 import { useEffect, useState } from "react";
 import { CardItems } from "../Constants/constants";
 import FeaturedCard from "./FeaturedCard";
@@ -17,6 +15,7 @@ const FeaturedShops = ({refreshKey}) => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
+        //console.log('inside useEffect');
 
         const FetchData = async() => {
 
@@ -34,22 +33,7 @@ const FeaturedShops = ({refreshKey}) => {
         
     }, [refreshKey])
 
-    //console.log('userData', userData);
-    
-    // const Cell = ({ columnIndex, rowIndex, style }) => {
-    //   const index = rowIndex * 3 + columnIndex;
-    //   const item = userData[index];
-
-    //   if (!item) return null;
-
-    //   console.log("inside cell", item);    
-    //   return (
-    //     <div style={style} className="mx-3 my-5">
-    //       <FeaturedCard item={item} />
-    //     </div>
-    //   );
-    // }
-    
+    console.log('userData', userData)
     
     return(<div className="">
         <div className="flex flex-row justify-between p-3">
@@ -79,31 +63,7 @@ const FeaturedShops = ({refreshKey}) => {
                         <FeaturedCard item= {single} />
                 </div>
             ))}
-        </div>
-        
-        // <>
-        // {userData.length > 0 && (
-        //   <div className="h-[550px] w-full">
-        //     <AutoSizer>
-        //       {({ width, height }) => (
-        //         <List
-        //           height={height}
-        //           width={width}
-        //           columnCount={3}
-        //           columnWidth={width / 3}
-        //           rowCount={Math.ceil(userData.length / 3)}
-        //           rowHeight={550}
-        //         >
-        //           {(props) => <Cell {...props} />}
-        //         </List>
-        //       )}
-        //     </AutoSizer>
-        //   </div>
-        // )}
-        // </>
-
-        }
-        
+        </div>}
         </div>
 
     </div>)
