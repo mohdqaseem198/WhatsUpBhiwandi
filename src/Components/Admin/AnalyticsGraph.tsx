@@ -21,7 +21,6 @@ const data = [
 const AnalyticsGraph = () => {
   return (
     <div className="bg-white p-6 rounded shadow">
-
       <h2 className="text-lg font-semibold mb-4">Views Analytics</h2>
 
       <ResponsiveContainer width="100%" height={300}>

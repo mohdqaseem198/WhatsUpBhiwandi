@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import mongoose from "mongoose";
 import ShopAnalytics from "../../../Schema/ShopAnalytics";
 import connectDB from "@/lib/mongoose";
+import { stat } from "fs";
 
 export async function POST(req) {
 
@@ -41,3 +42,20 @@ export async function POST(req) {
   }
 
 }
+
+// export async function GET(){
+//   try{
+//     await connectDB();
+//     console.log('db connected');
+
+//     const AnalyticsData  = await ShopAnalytics.find({});
+//     console.log('analytics data ' , AnalyticsData);
+
+//     return NextResponse.json({status : 200 , message : AnalyticsData});
+
+//   }
+
+//   catch(err){
+//     NextResponse.json({status : 201 , message : 'something went wrong !! '})
+//   }
+// }
