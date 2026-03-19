@@ -1,14 +1,6 @@
 "use client";
 
-const shops = [
-  { id: 1, name: "Madina Restaurant" },
-  { id: 2, name: "Royal Biryani" },
-  { id: 3, name: "City Electronics" },
-];
-
 const Sidebar = ({ setSelectedShop, sidebarShop }) => {
-
-  console.log('from side bar', sidebarShop);
 
   return (
     <div className="w-64 bg-white shadow-md p-4">

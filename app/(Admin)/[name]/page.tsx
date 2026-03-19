@@ -16,8 +16,6 @@ const Admin = async() => {
     const session = await getServerSession(authOptions);
 
     await connectDB();
-    // const data = await ShopAnalytics.find();
-    // const cleanedData = JSON.parse(JSON.stringify(data));
 
     const dataWithShop = await ShopAnalytics.find()
         .populate("shopId", "name"); // only fetch name

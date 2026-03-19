@@ -28,7 +28,7 @@ const Navbar = () => {
             <div className="p-1 cursor-pointer">Offers</div>
             <div className="p-1 cursor-pointer">Categories</div>
             <ListYourShop text = "List Your Shop" />
-            <Link href={`/Admin/${name}`}>
+            <Link href={`/${name}`}>
                 <ListYourShop text={'Admin'} disabled = {!session ? true : false} />
             </Link>
         </div>

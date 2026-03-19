@@ -1,30 +1,65 @@
 'use client'
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import AnalyticsGraph from "./AnalyticsGraph";
 import Filters from "./Filters";
 import Sidebar from "./Sidebar";
 import StatsCards from "./StatsCards";
 import { Console } from "console";
+import axios from "axios";
 
 const AdminClient  = ({session, data}) => {
 
     const [selectedShop, setSelectedShop] = useState(null);
     const [filter, setFilter] = useState("day");
+    const [analytics, setAnalytics] = useState(null);
 
     console.log('cleaned data admin client', data);
 
-    const uniqueShops = {};
+const uniqueShops = {};
 
-    data.forEach(item => {
-      const id = item.shopId._id;
-    
-      if (!uniqueShops[id]) {
-        uniqueShops[id] = item.shopId;
+// data.forEach(item => {
+//   const id = item.shopId._id;
+
+//   if (!uniqueShops[id]) {
+//     uniqueShops[id] = {
+//       _id: item?._id,
+//       name: item.shopId.name
+//     };
+//   }
+// });
+
+data.forEach(item => {
+  const id = item.shopId._id;
+
+  if (!uniqueShops[id]) {
+    uniqueShops[id] = {
+      _id: item?.shopId,
+      name: item.shopId.name
+    };
+  }
+});
+
+const sidebarShops = Object.values(uniqueShops);
+
+    const getSelectedShopAnalytics = async(id) => {
+      const res =  await axios.post('/api/shop-analytics', {id})
+      const data = await res;
+      setAnalytics(data?.data?.message);
+      return data;
+    }
+
+    useEffect(() => {
+
+      if(!selectedShop){
+        return;
       }
-    });
 
-    const sidebarShops = Object.values(uniqueShops);
-    console.log('sideBarShops' , sidebarShops);
+      const id = selectedShop?._id;
+      getSelectedShopAnalytics(id); 
+
+    }, [selectedShop])
+
+    console.log('analytics' , analytics);
 
     return(
         <div className="flex h-screen bg-gray-100">
@@ -39,7 +74,7 @@ const AdminClient  = ({session, data}) => {
 
         <StatsCards />
 
-        <AnalyticsGraph />
+        <AnalyticsGraph analytics = {analytics} />
 
       </div>
 
