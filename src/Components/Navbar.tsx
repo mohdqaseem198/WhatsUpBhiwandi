@@ -3,7 +3,7 @@ import { useSession } from "next-auth/react";
 import { Cities } from "../Constants/constants";
 import ListYourShop from "./Models/ListYouShopButton";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { set } from "mongoose";
 
@@ -11,16 +11,19 @@ const Navbar = () => {
 
     const [FormOpen, setFormOpen] = useState(false);
     const {data : session} = useSession();
+    let ShopData = null;
+    let categoryList;
     
     const name =  (session?.user?.name)?.replaceAll(' ',"");
     
-    const ShopData = useSelector((store) => store.FeaturedShopSlicer.data);
-    
     const setList = new Set;
-    ShopData?.map((single) => setList.add(single?.description));
+    ShopData = useSelector((store) => store.FeaturedShopSlicer.data);
 
-    const categoryList = setList.values();
-    
+    if(ShopData.length > 0){
+        ShopData?.map((single) => setList.add(single?.description));
+    }
+    categoryList = setList.values();
+
 
     return(<div className="p-1 flex bg-white lg:flex-row lg:justify-between" id="navbar">
         <div className="p-1">
@@ -44,8 +47,8 @@ const Navbar = () => {
                 {FormOpen &&
                 <div className="absolute m-auto inset-x-0 top-15 h-96 w-150 z-10 bg-white border-2 border-teal-400 rounded-md">
                     <div className="flex flex-row justify-around">
-                    <h2 className="font-semibold">Categories Available</h2>
-                    <button className="cursor-pointer" onClick={() => setFormOpen(!FormOpen)}>X</button>
+                        <h2 className="font-semibold">Categories Available</h2>
+                        <button className="cursor-pointer  bg-red-500 text-white w-8 h-8 rounded-full" onClick={() => setFormOpen(!FormOpen)}>X</button>
                     </div>
                     <div className="flex flex-wrap justify-around m-1">
                         {

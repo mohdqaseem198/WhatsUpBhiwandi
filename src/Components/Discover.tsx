@@ -7,7 +7,7 @@ import DiscoverRight from "./DiscoverRight";
 import Link from "next/link";
 import { signIn, useSession } from "next-auth/react";
 
-const Discover = ({onSuccess}) => {
+const Discover = ({onSuccess, open, setOpen}) => {
     const {data : session} = useSession();
     return (
     <div className="grid py-14 bg-teal-600 text-white lg:grid-cols-5" id="discover">
@@ -33,7 +33,7 @@ const Discover = ({onSuccess}) => {
 
             
             <div className="my-3">
-                <RegisterShop text={session ? 'Register You Shop' : 'LogIn to Register'} onSuccess={onSuccess} />
+                <RegisterShop open={open} setOpen={setOpen} text={session ? 'Register You Shop' : 'LogIn to Register'} onSuccess={onSuccess} />
             </div>
             
 

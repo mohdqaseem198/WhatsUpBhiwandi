@@ -9,6 +9,7 @@ import Offers from "./src/Components/Offers";
 import QuickForm from "./src/Components/QuickForm";
 import ReadyToGrow from "./src/Components/ReadyToGrow";
 import DiscoveredComboFeaturedShop from "./src/Components/DiscoveredCombFeaturedShop";
+import HomeClient from "./src/Components/HomeClient";
 
 const App = () => {
 
@@ -20,9 +21,7 @@ const App = () => {
         </div>
 
         <main>
-            <DiscoveredComboFeaturedShop />
-            <Offers />
-            <ReadyToGrow />
+            <HomeClient />
 
             <div className="lg:grid lg:grid-cols-2 lg:my-14">
                 <GetInTouch />

@@ -3,7 +3,7 @@ import { useState } from "react";
 import Discover from "./Discover";
 import FeaturedShops from "./FeaturedShops";
 
-const DiscoveredComboFeaturedShop = () => {
+const DiscoveredComboFeaturedShop = ({open, setOpen}) => {
 
      const [refreshKey, setRefreshKey] = useState(0) ;
     
@@ -12,7 +12,7 @@ const DiscoveredComboFeaturedShop = () => {
         }
 
     return(<div>
-            <Discover onSuccess={handleRefresh} />
+            <Discover open={open} setOpen={setOpen} onSuccess={handleRefresh} />
             <FeaturedShops refreshKey={refreshKey} />
     </div>)
 };

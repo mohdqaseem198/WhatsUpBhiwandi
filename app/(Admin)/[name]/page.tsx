@@ -14,11 +14,20 @@ import connectDB from "@/lib/mongoose";
 const Admin = async() => {
 
     const session = await getServerSession(authOptions);
-
+    console.log('session from admin', session?.user?.email);
     await connectDB();
 
+    // const dataWithShop = await ShopAnalytics.find()
+    //     .populate("shopId", "name email"); // only fetch name
+
     const dataWithShop = await ShopAnalytics.find()
-        .populate("shopId", "name"); // only fetch name
+        .populate({
+          path: "shopId",
+          select: "name email",
+          match: { email: session?.user?.email }
+        });
+
+    console.log('dataWithShop', dataWithShop);
 
     const cleanedData2 = JSON.parse(JSON.stringify(dataWithShop));
 

@@ -4,10 +4,10 @@ import { useSession, signIn, signOut } from "next-auth/react";
 import { useState } from "react";
 import toast from "react-hot-toast";
 
-const RegisterShop = ({text, onSuccess}) => {
+const RegisterShop = ({text, onSuccess, open, setOpen}) => {
 
     const {data : session} = useSession();
-    const [open, setOpen] = useState(false);
+    //const [open, setOpen] = useState(false);
     const [loading, setLoading] = useState(false);
     const [uploadedUrls, setUploadedUrls] = useState([]);
 

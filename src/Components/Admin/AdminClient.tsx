@@ -29,14 +29,19 @@ const uniqueShops = {};
 // });
 
 data.forEach(item => {
-  const id = item.shopId._id;
-
+  const id = item?.shopId?._id;
+try{
   if (!uniqueShops[id]) {
     uniqueShops[id] = {
       _id: item?.shopId,
       name: item.shopId.name
     };
   }
+  }
+  catch(err){
+    console.log('failed in shopId', err);
+  }
+  
 });
 
 const sidebarShops = Object.values(uniqueShops);
