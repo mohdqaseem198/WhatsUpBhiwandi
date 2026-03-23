@@ -42,7 +42,7 @@ export default function RootLayout({
             {children}
             <Toaster position="top-center" />
           </Providers>
-          </ReduxProvider>
+        </ReduxProvider>
       </body>
     </html>
   );

@@ -16,8 +16,19 @@ const Discover = ({onSuccess}) => {
             <p>Connect with  1000+ local businesses.</p>
             <p>Find best deals, offers, and products near you. Support your neighborhood shops</p>
             
-            <div className="my-2">
+            {/* <div className="my-2">
+                <a href="#FeaturedShop">
                 <ExploreButton text="Explore Shops" />
+                </a>
+            </div> */}
+
+            <div className="my-2">
+              <ExploreButton
+                text="Explore Shops"
+                onClick={() => {
+                  document.getElementById("FeaturedShop")?.scrollIntoView({ behavior: "smooth" });
+                }}
+              />
             </div>
 
             

@@ -7,12 +7,15 @@ import axios from "axios";
 import Link from "next/link";
 import { arrayBuffer } from "stream/consumers";
 import ShimmerFeaturedCard from "./ShimmerFeaturedCard";
+import { useDispatch } from "react-redux";
+import { Add } from "../redux/slices/FeaturedShopSlice";
 
 
 const FeaturedShops = ({refreshKey}) => {
 
     const [userData, setUserData] = useState([]);
     const [loading, setLoading] = useState(true);
+    const dispatch = useDispatch();
 
     useEffect(() => {
         //console.log('inside useEffect');
@@ -34,8 +37,9 @@ const FeaturedShops = ({refreshKey}) => {
     }, [refreshKey])
 
     console.log('userData', userData)
+    dispatch(Add(userData));
     
-    return(<div className="">
+    return(<div id="FeaturedShop" className="">
         <div className="flex flex-row justify-between p-3">
             <div>
                 <h2 className="font-semibold text-2xl">Featured Shops</h2>

@@ -52,7 +52,7 @@ console.log('inside GET');
   try{
     await connectDB();
 
-    const data = await RegisterShop.find({});
+    const data = await RegisterShop.find({}).sort({createdAt : -1});
 
     return NextResponse.json(data, { status: 200 });
   }

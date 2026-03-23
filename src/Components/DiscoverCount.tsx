@@ -1,5 +1,6 @@
 import { count } from "console";
 import { Signika } from "next/font/google";
+import CountUp from "react-countup";
 
 const DiscoverCount = () => {
 
@@ -13,7 +14,18 @@ const DiscoverCount = () => {
             {details && details.map((single) => (
             <div className="" key={single.id}>
                 <div className="text-3xl">
-                    {single.k === "K" ? single.count+single.k : single.count }+
+                    
+                    {single.k === "K" ? (
+                    <>
+                        <CountUp end={single.count} duration={2} />
+                        K+
+                    </>
+                    ) : (
+                    <>
+                        <CountUp end={single.count} duration={1.5} />+
+                    </>
+                    )}
+                    
                 </div>
 
                 <div className="text-teal-200">

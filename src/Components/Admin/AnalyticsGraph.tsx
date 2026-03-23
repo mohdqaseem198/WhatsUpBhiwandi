@@ -20,22 +20,22 @@ import { useStackId } from "recharts/types/cartesian/BarStack";
 //   { date: "14 Mar", views: 20 },
 // ];
 
-const AnalyticsGraph = ({analytics}) => {
+const AnalyticsGraph = ({analytics }) => {
 
 //converting data from 2026-03-18 to 18 March 2026
-  const formattedData = analytics.map(item => {
-  const dateObj = new Date(item.date);
-
-  const formattedDate = dateObj.toLocaleDateString("en-GB", {
-    day: "numeric",
-    month: "long",
-    //year : "numeric"
-  });
-
-  return {
-    ...item,
-    date: formattedDate
-  };
+  const formattedData = analytics?.map(item => {
+    const dateObj = new Date(item.date);
+    
+    const formattedDate = dateObj?.toLocaleDateString("en-GB", {
+      day: "numeric",
+      month: "long",
+      //year : "numeric"
+    });
+  
+    return {
+      ...item,
+      date: formattedDate
+    };
 });
 
 useEffect(() => {

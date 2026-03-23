@@ -59,7 +59,7 @@ const sidebarShops = Object.values(uniqueShops);
 
     }, [selectedShop])
 
-    console.log('analytics' , analytics);
+    //console.log('analytics' , analytics);
 
     return(
         <div className="flex h-screen bg-gray-100">
@@ -72,7 +72,7 @@ const sidebarShops = Object.values(uniqueShops);
 
         <Filters filter={filter} setFilter={setFilter} />
 
-        <StatsCards />
+        <StatsCards  analytics = {analytics} />
 
         <AnalyticsGraph analytics = {analytics} />
 
