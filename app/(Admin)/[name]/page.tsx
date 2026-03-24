@@ -1,5 +1,6 @@
 'use server';
 import { getServerSession } from "next-auth";
+import RegisterShop from "../../../Schema/RegisterShop";
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 import FourNotFour from "@/src/Components/FourNotFour";
 import Sidebar from "@/src/Components/Admin/Sidebar";
