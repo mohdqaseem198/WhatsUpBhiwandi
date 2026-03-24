@@ -13,7 +13,13 @@ import { Add } from "../redux/slices/FeaturedShopSlice";
 
 const FeaturedShops = ({refreshKey}) => {
 
-    const [userData, setUserData] = useState([]);
+    type Shop = {
+      _id: string;
+      name: string;
+      // add more fields if needed
+    };
+
+    const [userData, setUserData] = useState<Shop[]>([]);
     const [loading, setLoading] = useState(true);
     const dispatch = useDispatch();
 

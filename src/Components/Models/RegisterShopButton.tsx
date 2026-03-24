@@ -35,7 +35,7 @@ const uploadImagesToCloudinary = async () => {
 
     console.log('inside cloudinary function');
 
-    const urls = [];
+    const urls : string[] = [];
 
     for (const file of form.images) {
       const data = new FormData();

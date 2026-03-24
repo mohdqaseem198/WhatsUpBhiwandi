@@ -3,12 +3,12 @@ import { useDispatch, useSelector } from "react-redux";
 import {Delete, updateSlice} from '../../src/redux/slices/bookSlice';
 import { useState } from "react";
 import { setupDevBundler } from "next/dist/server/lib/router-utils/setup-dev-bundler";
-import { RootState } from "@reduxjs/toolkit/query";
+
 
 const Cart = () => {
 
     const dispatch = useDispatch();
-    const items = useSelector((store : RootState) => store.BooksSlicer.item)
+    const items = useSelector((store : any) => store.BooksSlicer.item)
     const [update, setUpdate] = useState(false);
     const [form, setForm] = useState({
         id : 0,
@@ -22,14 +22,14 @@ const Cart = () => {
         dispatch(Delete(id));
     }
 
-    const handleChange = (e) => {
+    const handleChange = (e : any) => {
         const {name, value} = e.target
         setForm((prev) => ({...prev,
             [name]: value
         }));
     }
 
-    const handleUpdate = (item) => {
+    const handleUpdate = (item : any) => {
         setUpdate(!update);
 
         setForm({

@@ -8,6 +8,8 @@ import Link from "next/link";
 import { signIn, useSession } from "next-auth/react";
 
 const Discover = ({onSuccess, open, setOpen}) => {
+
+
     const {data : session} = useSession();
     return (
     <div className="grid py-14 bg-teal-600 text-white lg:grid-cols-5" id="discover">

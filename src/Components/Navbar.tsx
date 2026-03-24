@@ -17,7 +17,7 @@ const Navbar = () => {
     const name =  (session?.user?.name)?.replaceAll(' ',"");
     
     const setList = new Set;
-    ShopData = useSelector((store) => store.FeaturedShopSlicer.data);
+    ShopData = useSelector((store : any) => store.FeaturedShopSlicer.data);
 
     if(ShopData.length > 0){
         ShopData?.map((single) => setList.add(single?.description));

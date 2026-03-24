@@ -13,7 +13,7 @@ import connectDB from "@/lib/mongoose";
 
 const Admin = async() => {
 
-    const session = await getServerSession(authOptions);
+    const session : any = await getServerSession(authOptions);
     console.log('session from admin', session?.user?.email);
     await connectDB();
 
