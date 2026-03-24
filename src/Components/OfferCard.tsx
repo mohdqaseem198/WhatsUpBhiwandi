@@ -13,7 +13,7 @@ const OfferCard = ({props}) => {
     <div className= "bg-white shadow-2xl rounded-xl">
 
         <div className="w-full h-[300px] rounded-t-md overflow-hidden">
-            <img className="w-full h-full object-cover" src="./shop.jpeg" />
+            <img className="w-full h-full object-cover" src="./Shop.jpeg" />
         </div>
 
     <div className="p-2">
