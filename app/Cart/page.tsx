@@ -3,11 +3,12 @@ import { useDispatch, useSelector } from "react-redux";
 import {Delete, updateSlice} from '../../src/redux/slices/bookSlice';
 import { useState } from "react";
 import { setupDevBundler } from "next/dist/server/lib/router-utils/setup-dev-bundler";
+import { RootState } from "@reduxjs/toolkit/query";
 
 const Cart = () => {
 
     const dispatch = useDispatch();
-    const items = useSelector((store) => store.BooksSlicer.item)
+    const items = useSelector((store : RootState) => store.BooksSlicer.item)
     const [update, setUpdate] = useState(false);
     const [form, setForm] = useState({
         id : 0,
