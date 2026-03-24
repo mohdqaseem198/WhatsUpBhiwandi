@@ -14,9 +14,10 @@ import connectDB from "@/lib/mongoose";
 
 const Admin = async() => {
 
+    await connectDB();
+    RegisterShop;
     const session : any = await getServerSession(authOptions);
     console.log('session from admin', session?.user?.email);
-    await connectDB();
 
     // const dataWithShop = await ShopAnalytics.find()
     //     .populate("shopId", "name email"); // only fetch name
